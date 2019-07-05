@@ -84,7 +84,7 @@ def funkcija(naziv):
 		gray = cv2.GaussianBlur(gray, (21, 21), 0)
 		thresh = cv2.threshold(gray, 25, 255, cv2.THRESH_BINARY)[1]
 		thresh = cv2.dilate(thresh, kernel, iterations=2)
-		_im2, contours, _hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+		contours, _hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
 		konture = []
 		for c in contours:
