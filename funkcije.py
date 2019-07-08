@@ -255,12 +255,12 @@ class NumberTracker():
 			usedCols = set()
 
 			for (row, col) in zip(rows, cols):
-				# ako sam vec proverio ovaj red/kolonu, dalje
+				# ako sam vec proverila ovaj red/kolonu, dalje
 				if row in usedRows or col in usedCols:
 					continue
 
-                # u suprotnim, uzimam sledecu cifru, restartujem joj br frejmova na kojimae nije bilo
-				# nasao sam neku konturu koja ima najmanje rastojanje sa nekom cifrom koju smo pratili
+                # u suprotnim, uzimam sledecu cifru, restartujem joj br frejmova na kojima je nije bilo
+				# nasla sam neku konturu koja ima najmanje rastojanje sa nekom cifrom koju smo pratili
 				objectID = objectIDs[row]
 				self.objects[objectID] = inputCentroids[col] #azuriram x i y komponentu
 				if self.plavaLinija[objectID] == False and nizPresloPlavu[col] == True: # ako cifra nije bila presla liniju a sada joj kazem da je presla
@@ -273,11 +273,11 @@ class NumberTracker():
 								nizSlikeZelena.append(self.slike[objectID])                                  
 				self.disappeared[objectID] = 0
 
-				# iskoristio sam red i kolonu
+				# iskoristila sam red i kolonu
 				usedRows.add(row)
 				usedCols.add(col)
 
-			# odredi kolone i redove koje jos uvek nisam iskoristio
+			# odredi kolone i redove koje jos uvek nisam iskoristila
 			unusedRows = set(range(0, D.shape[0])).difference(usedRows)
 			unusedCols = set(range(0, D.shape[1])).difference(usedCols)
 
